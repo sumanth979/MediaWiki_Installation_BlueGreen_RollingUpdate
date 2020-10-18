@@ -84,6 +84,10 @@ ansible-playbook playbook.yaml -i invertory.txt
 <img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/rolling.png" alt="rolling">
 
 
+## Other Possible Solutions
+* We can use userdata to install the mediaWiki but the creation of userdata becomes more complex and there will be more chances to fail in b/w the run as it contains many steps.
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
 - Due to time contraint the deployment is script is written as possible as i can. With more time we can enhance the script and modularize it.
