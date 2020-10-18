@@ -15,4 +15,13 @@ This Technologies used in this deployment is
 
 ## Deployment Steps
 
-### 
+### File Details
+* blueGreen.yaml                 - Cloud Formation template for blue green deployment.
+* rollingUpdate.yaml             - Cloud Formation template for rolling deployment.
+* parameters.json                - The parameters file for blue green deployment.
+* mediawikiInstallationSteps.txt - Manual steps for mediawiki installation.
+* dynamicInventory.py            - To create dynamic Inventory based on the ec2 tags.
+* playbook.yaml                  - Ansible playbook for mediaWiki installation.
+* seup.sh                        - Setup file for deployment.
+
+
