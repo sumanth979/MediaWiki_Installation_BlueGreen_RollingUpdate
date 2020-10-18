@@ -68,6 +68,13 @@ ansible-playbook playbook.yaml -i invertory.txt
 <img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/ansible1.png" alt="ansible1">
 <img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/ansible2.png" alt="ansible2">
 
+### cloud Formation Deployment
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/cf_output1.png" alt="cf_output">
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/cf_output2.png" alt="cf_output">
+
+## MediaWiki Installation
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/output%20from%20lb.png" alt="mediaWiki">
+
 ## Architecture
 ### Blue Green Mode
 <img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/blue-green.png" alt="blue-green">
@@ -77,3 +84,13 @@ ansible-playbook playbook.yaml -i invertory.txt
 <img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/rolling.png" alt="rolling">
 
 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Due to time contraint the deployment is script is written as possible as i can. With more time we can enhance the script and modularize it.
+
+## Other Blue Green deployments
+### Blue Green Deployment using ECS
+* https://github.com/sumanth979/AWS_BlueGreenDeployment/tree/master/Deploying_Application_using_ECS
+
+### My Other Works
+* https://github.com/sumanth979
