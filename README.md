@@ -25,3 +25,16 @@ This Technologies used in this deployment is
 * seup.sh                        - Setup file for deployment.
 
 
+
+
+
+
+
+
+## Architecture
+### Blue Green Mode
+<img src="https://github.com/sumanth979/AWS_BlueGreenDeployment/blob/master/Deploying_EC2_Instances/blue-green.png" alt="blue-green">
+### Rolling Update Mode
+<img src="https://github.com/sumanth979/AWS_BlueGreenDeployment/blob/master/Deploying_EC2_Instances/rolling.png" alt="rolling">
+
+## Outputs
