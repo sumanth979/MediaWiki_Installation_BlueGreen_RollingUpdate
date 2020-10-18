@@ -1,6 +1,15 @@
 # ThoughtWorksLab
 ThoughtWorks Lab Exercise
 
+## Problem Statement
+We want to automate the deployment of MediaWiki using.
+* Kubernetes with Helm Chart/ any equivalent automation
+* CFT with Any Configuration Management Tool (Only for AWS). If any 
+* Terraform with any Configuration Management tool integrated.
+--
+Choose only one of your comfort.
+* The above automation should support CI/CD practices of chosen deployment style like Rolling Update or BlueGreen Deployment. (Optional)
+
 ## Technologies Used
 This Technologies used in this deployment is
 * Yaml Scripting
@@ -56,10 +65,10 @@ ansible-playbook playbook.yaml -i invertory.txt
 
 ## Architecture
 ### Blue Green Mode
-<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/blue-green.png" alt="blue-green">
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/output/blue-green.png" alt="blue-green">
 
 ### Rolling Update Mode
 
-<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/rolling.png" alt="rolling">
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/output/rolling.png" alt="rolling">
 
 
