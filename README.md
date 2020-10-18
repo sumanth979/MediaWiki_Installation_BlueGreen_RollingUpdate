@@ -7,6 +7,7 @@ This Technologies used in this deployment is
 * Python
 * Shell Scripting
 * Cloud Formation Template
+* Ansible Playbooks
 
 ## Deployment Templates Available
 * Blue-Green Deployment
