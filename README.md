@@ -61,16 +61,16 @@ ansible-playbook playbook.yaml -i invertory.txt
 ```
 
 ## Outputs
+### cloud Formation Deployment
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/cf_output1.png" alt="cf_output">
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/cf_output2.png" alt="cf_output">
+
 ### Dynamic Inventory File
 <img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/dynamic_inventory.png" alt="dynamic_inventory">
 
 ### Ansible Output
 <img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/ansible1.png" alt="ansible1">
 <img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/ansible2.png" alt="ansible2">
-
-### cloud Formation Deployment
-<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/cf_output1.png" alt="cf_output">
-<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/cf_output2.png" alt="cf_output">
 
 ## MediaWiki Installation
 <img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/output%20from%20lb.png" alt="mediaWiki">
