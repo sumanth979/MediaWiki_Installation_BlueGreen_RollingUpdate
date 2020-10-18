@@ -33,8 +33,8 @@ This Technologies used in this deployment is
 
 ## Architecture
 ### Blue Green Mode
-<img src="https://github.com/sumanth979/AWS_BlueGreenDeployment/blob/master/Deploying_EC2_Instances/blue-green.png" alt="blue-green">
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/blue-green.png" alt="blue-green">
 ### Rolling Update Mode
-<img src="https://github.com/sumanth979/AWS_BlueGreenDeployment/blob/master/Deploying_EC2_Instances/rolling.png" alt="rolling">
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/rolling.png" alt="rolling">
 
 ## Outputs
