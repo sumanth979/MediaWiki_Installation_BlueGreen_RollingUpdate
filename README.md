@@ -26,7 +26,11 @@ This Technologies used in this deployment is
 
 ### Deployment Process
 
-#### 
+#### Running in a single Step
+* To complete the deployment in a single step
+```
+sh setup.sh
+```
 
 #### Running Each File Seperately
 * To Deploy the Cloud Formation Stack using cli
@@ -47,12 +51,7 @@ echo "Run Ansible Playbook to deploy mediaWiki"
 ansible-playbook playbook.yaml -i invertory.txt
 ```
 
-
-
-
-
-
-
+## Outputs
 
 
 ## Architecture
@@ -61,4 +60,4 @@ ansible-playbook playbook.yaml -i invertory.txt
 ### Rolling Update Mode
 <img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/rolling.png" alt="rolling">
 
-## Outputs
+
