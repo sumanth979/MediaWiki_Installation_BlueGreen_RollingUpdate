@@ -61,14 +61,19 @@ ansible-playbook playbook.yaml -i invertory.txt
 ```
 
 ## Outputs
+### Dynamic Inventory File
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/dynamic_inventory.png" alt="dynamic_inventory">
 
+### Ansible Output
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/ansible1.png" alt="ansible1">
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/ansible2.png" alt="ansible2">
 
 ## Architecture
 ### Blue Green Mode
-<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/output/blue-green.png" alt="blue-green">
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/blue-green.png" alt="blue-green">
 
 ### Rolling Update Mode
 
-<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/output/rolling.png" alt="rolling">
+<img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/outputs/rolling.png" alt="rolling">
 
 
