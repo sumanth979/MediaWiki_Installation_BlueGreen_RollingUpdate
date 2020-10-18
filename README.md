@@ -57,7 +57,9 @@ ansible-playbook playbook.yaml -i invertory.txt
 ## Architecture
 ### Blue Green Mode
 <img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/blue-green.png" alt="blue-green">
+
 ### Rolling Update Mode
+
 <img src="https://github.com/sumanth979/ThoughtWorksLab/blob/main/rolling.png" alt="rolling">
 
 
