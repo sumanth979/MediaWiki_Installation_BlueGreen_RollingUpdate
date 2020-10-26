@@ -1,11 +1,9 @@
 # ThoughtWorksLab
-ThoughtWorks Lab Exercise
+Lab Exercise
 
 ## Problem Statement
 We want to automate the deployment of MediaWiki using.
-* Kubernetes with Helm Chart/ any equivalent automation
 * CFT with Any Configuration Management Tool (Only for AWS). If any 
-* Terraform with any Configuration Management tool integrated.
 --
 Choose only one of your comfort.
 * The above automation should support CI/CD practices of chosen deployment style like Rolling Update or BlueGreen Deployment. (Optional)
