@@ -17,6 +17,7 @@ Resources:
           FromPort: 0
           ToPort: 65535
           CidrIp: 0.0.0.0/0
+
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -40,9 +41,14 @@ Resources:
           CidrIp: 0.0.0.0/0
     DependsOn:
     - ELBSecurityGroup
+
   ELB:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
+      ConnectionDrainingPolicy:
+        Enabled: true
+        Timeout: 30
+      CrossZone: true
       IpAddressType: ipv4
       Name:
         Ref: InternalELBName
@@ -52,6 +58,7 @@ Resources:
       Subnets:
         Ref: Subnets
       Type: application
+
   ELBTargetGroup:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
@@ -74,6 +81,7 @@ Resources:
         Ref: MyVPCId
     DependsOn:
     - ELB
+
   ELBDefaultListener:
     Type: AWS::ElasticLoadBalancingV2::Listener
     Properties:
@@ -88,6 +96,7 @@ Resources:
     DependsOn:
     - ELB
     - ELBTargetGroup
+
   AutoScalingGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
@@ -98,13 +107,13 @@ Resources:
       DesiredCapacity:
         Ref: ASGSize
       HealthCheckType: ELB
-      HealthCheckGracePeriod: 120
+      HealthCheckGracePeriod: '900'
       LaunchConfigurationName:
         Ref: LaunchConfiguration
       VPCZoneIdentifier:
         Ref: Subnets
       TargetGroupARNs: [
-        Ref: ELBTargetGroup ]      
+        Ref: ELBTargetGroup ] 
       TerminationPolicies:
       - Default
     CreationPolicy:
@@ -119,12 +128,9 @@ Resources:
         SuspendProcesses:
         - AlarmNotification
         WaitOnResourceSignals: true
-      Tags:
-      - PropagateAtLaunch: true
-        Value: AppServer
-        Key: Purpose
     DependsOn:
     - LaunchConfiguration
+  
   LaunchConfiguration:
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
@@ -149,13 +155,27 @@ Resources:
       SecurityGroups: [
         Ref: InstanceSecurityGroup ]
       UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash
-          yum update -y
-          yum install httpd -y
-          systemctl start httpd.service
-          systemctl enable httpd.service
-          echo "<h1>Hello World welcome to App deployed using rolling update</h1>" > /var/www/html/index.html
+        Fn::Base64:
+          Fn::Join:
+          - ''
+          - - "#!/bin/bash -ex"
+            - "\n"
+            - yum -y install httpd
+            - "\n"
+            - chkconfig httpd on
+            - "\n"
+            - 'echo "Hello World welcome to App deployed using Rolling update. Version- '
+            - Ref: VersionParameter
+            - "\" >> /var/www/html/index.html"
+            - "\n"
+            - service httpd start
+            - "\n"
+            - "/opt/aws/bin/cfn-signal -e 0 --region "
+            - Ref: AWS::Region
+            - " --stack "
+            - Ref: AWS::StackName
+            - " --resource AutoScalingGroup"
+            - "\n"
     DependsOn:
     - InstanceSecurityGroup
 
