@@ -52,9 +52,25 @@ Resources:
       Subnets:
         Ref: Subnets
       Type: application
+  
+  cretaing DB:
+    Type: 
+    InstanceType:
+    Memory:
+    Security:
+      
   AppELBTargetGroupBlue:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
+      HealthCheckIntervalSeconds: 10
+      HealthCheckPath: 
+        Fn::If: [AppListenerColorBlue, "/" ,"/"]
+      HealthCheckPort: '80'
+      HealthCheckProtocol: HTTP
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 5
+      Matcher:
+        HttpCode: '200'
       Name:
         Ref: TargetGroupBlueName
       Port: 80
@@ -70,6 +86,15 @@ Resources:
   AppELBTargetGroupGreen:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
+      HealthCheckIntervalSeconds: 10
+      HealthCheckPath: 
+        Fn::If: [AppListenerColorBlue, "/" ,"/"]
+      HealthCheckPort: '80'
+      HealthCheckProtocol: HTTP
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 5
+      Matcher:
+        HttpCode: '200'
       Name:
         Ref: TargetGroupGreenName
       Port: 80
@@ -140,7 +165,7 @@ Resources:
       DesiredCapacity:
         Ref: ASGGreenSize
       HealthCheckType: ELB
-      HealthCheckGracePeriod: '180'
+      HealthCheckGracePeriod: '900'
       LaunchConfigurationName:
         Ref: AppLaunchConfigurationGreen
       MaxSize:
@@ -182,6 +207,13 @@ Resources:
         Ref: KeyName
       SecurityGroups: [
         Ref: InstanceSecurityGroup ]
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          yum install httpd -y
+          systemctl start httpd.service
+          systemctl enable httpd.service
+          echo "<h1>Hello World welcome to blue green deployment.</h1>" > /var/www/html/index.html
     DependsOn:
     - InstanceSecurityGroup
   AppAutoScalingBlue:
@@ -190,7 +222,7 @@ Resources:
       DesiredCapacity:
         Ref: ASGBlueSize
       HealthCheckType: ELB
-      HealthCheckGracePeriod: '180'
+      HealthCheckGracePeriod: '900'
       LaunchConfigurationName:
         Ref: AppLaunchConfigurationBlue
       MaxSize:
@@ -232,6 +264,13 @@ Resources:
         Ref: KeyName
       SecurityGroups: [
         Ref: InstanceSecurityGroup ]
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          yum install httpd -y
+          systemctl start httpd.service
+          systemctl enable httpd.service
+          echo "<h1>Hello World welcome to blue green deployment.</h1>" > /var/www/html/index.html
     DependsOn:
     - InstanceSecurityGroup
   
@@ -239,15 +278,15 @@ Parameters:
   ASGGreenSize:
     Description: Desired number of EC2 instances in green Auto Scaling Group
     Type: Number
-    Default: 1
+    Default: 0
   ASGBlueSize:
     Description: Desired number of EC2 instances in green Auto Scaling Group
     Type: Number
-    Default: 1
+    Default: 2
   ASGSizeMinSize:
     Description: Min number of EC2 instances in Auto Scaling Group
     Type: Number
-    Default: 1
+    Default: 0
   ASGSizeMaxSize:
     Description: Max number of EC2 instances in Auto Scaling Group
     Type: Number
