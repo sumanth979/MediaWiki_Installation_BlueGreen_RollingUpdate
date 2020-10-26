@@ -1,4 +1,4 @@
-# ThoughtWorksLab
+# MediaWiki Installation Using BlueGreen Deployment & Rolling Update
 Lab Exercise
 
 ## Problem Statement
