@@ -60,7 +60,7 @@
       unarchive: 
         src: /tmp/mediawiki-1.24.2.tar.gz  
         dest: /tmp/
-        remote_src: yes 
+        remote_src: yes
 
     - name: Move the mediawiki file
       command: mv /tmp/mediawiki-1.24.2 /var/www/html/media
